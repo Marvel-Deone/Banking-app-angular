@@ -24,8 +24,6 @@ export class AppComponent implements DoCheck {
       this.isMenuVisible = false;
     } else if (currentroute == '/sign-up') {
       this.isMenuVisible = false;
-    } else if (currentroute == '/landing-page') {
-      this.isMenuVisible = false;
     } else {
       this.isMenuVisible = true;
     }
