@@ -1,0 +1,493 @@
+<div class="flex flex-col gap-6">
+    <app-header-menu></app-header-menu>
+    <div class="h-full overflow-y-auto md:px-6 py-16 md:px-5 md:py-16">
+        <div class="container px-6 py-3 mx-auto grid gap-2">
+            <!-- Menu -->
+            <div class='lg:flex gap-2 items-center my-6'>
+                <h2 class="text-2xl font-semibold text-gray-700">
+                    Transaction
+                </h2>
+                <span class='w-1 rounded h-8 -mt-4 bg-blue-600'></span>
+                <div class='flex gap-3 -mt-2'>
+                    <a routerLink="/user/dashboard"><span class='text-sm tcext-blue-600'> Dashboard</span></a>
+                    <!-- <a routerLink="/my-transactions"><span class='hidden md:flex text-sm'> Transaction</span></a> -->
+                </div>
+            </div>
+            <!-- Cards -->
+            <div class="flex flex-col md:flex-row gap-5 w-full flex-wrap">
+                <div class="w-full md:w-[14.5rem]  flex items-center p-4 bg-white rounded-lg shadow-xs">
+                    <div class="p-3 mr-4 text-orange-500 bg-orange-100 rounded-full">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="mb-2 text-sm font-medium text-gray-600">
+                            All Transactions
+                        </p>
+                        <p class="text-lg font-semibold text-gray-700">
+                            24
+                        </p>
+                    </div>
+                </div>
+                <div class="w-full md:w-[14.5rem]  flex items-center p-4 bg-white rounded-lg shadow-xs">
+                    <div class="p-3 mr-4 text-green-500 bg-green-100 rounded-full">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="mb-2 text-sm font-medium text-gray-600">
+                            Transferred
+                        </p>
+                        <p class="text-lg font-semibold text-gray-700">
+                            $ 46,760.89
+                        </p>
+                    </div>
+                </div>
+                <div class="w-full md:w-[14.5rem]  flex items-center p-4 bg-white rounded-lg shadow-xs">
+                    <div class="p-3 mr-4 text-teal-500 bg-teal-100 rounded-full">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="mb-2 text-sm font-medium text-gray-600">
+                            Received
+                        </p>
+                        <p class="text-lg font-semibold text-gray-700">
+                            $ 30,000.00
+                        </p>
+                    </div>
+                </div>
+                <div class="w-full md:w-[14.5rem] flex items-center p-4 bg-white rounded-lg shadow-xs">
+                    <div class="p-3 mr-4 text-blue-500 bg-blue-100 rounded-full">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="mb-2 text-sm font-medium text-gray-600">
+                            Cancelled
+                        </p>
+                        <p class="text-lg font-semibold text-gray-700">
+                            3
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Action Button -->
+            <div class='block lg:flex gap-3 mt-7'>
+                <div class='grid gap-3 mb-8 md:grid-cols-2 xl:grid-cols-5'>
+                    <div
+                        class='bg-blue-700 px-2 text-white py-3 rounded-md text-center flex gap-1 cursor-pointer hover:bg-blue-600 transition-all ease-in-out duration-500'>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z">
+                            </path>
+                        </svg>
+                        <a>All Transactions</a>
+                    </div>
+                    <div
+                        class='bg-blue-700 px-4 text-white py-3 rounded-md text-center flex gap-1 cursor-pointer hover:bg-blue-600 transition-all ease-in-out duration-500'>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        <a>Transferred</a>
+                    </div>
+                    <div
+                        class='bg-blue-700 px-6 text-white py-3 rounded-md text-center flex gap-1 cursor-pointer hover:bg-blue-600 transition-all ease-in-out duration-500'>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        <a>Received</a>
+                    </div>
+                    <div
+                        class='bg-blue-700 px-5 text-white py-3 rounded-md text-center flex gap-1 cursor-pointer hover:bg-blue-600 transition-all ease-in-out duration-500'>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z">
+                            </path>
+                        </svg>
+                        <a>Cancelled</a>
+                    </div>
+                </div>
+                <div class='flex gap-4 mt-2 mb-3'>
+                    <div
+                        class='bg-blue-700 w-20 h-10 py-2 flex items-center justify-center text-white rounded-md text-center gap-1 cursor-pointer hover:bg-blue-600 transition-all ease-in-out duration-500'>
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        <a>Print</a>
+                    </div>
+                    <div class='relative inline-block'>
+                        <button mat-icon-button [matMenuTriggerFor]="menu"
+                            class='mt-3 text-sm hover:text-blue-600 transistion-all ease-in-out duration-500 focus:outline-none focus:border-none outline-none border-none'><span>
+                                New
+                                Transaction</span></button>
+                        <mat-menu #menu="matMenu" class="w-44 mt-2">
+                            <button mat-menu-item>
+                                <a (click)="drawal('Withdraw')">
+                                    <p class='text-gray-600 py-2 hover:text-blue-600 transition-all duration-500 ease'>
+                                        Withdraw</p>
+                                </a>
+                            </button>
+                            <button mat-menu-item>
+                                <a (click)="drawal('Transfer')">
+                                    <p class='text-gray-600 py-2 hover:text-blue-600 transition-all duration-500 ease'>
+                                        Transfer</p>
+                                </a>
+                            </button>
+                            <button mat-menu-item>
+                                <a (click)="drawal('Deposit')">
+                                    <p class='text-gray-600 py-2 hover:text-blue-600 transition-all duration-500 ease'>
+                                        Deposit</p>
+                                </a>
+                            </button>
+                        </mat-menu>
+                    </div>
+                    <div *ngIf="drawalStat"
+                        class="absolute fixed top-0 right-0 bg-black/60 w-full h-screen flex z-40 overflow-hidden">
+                        <div class='w-3/12 transition-all ease-out duration-700 bg-gray-50 h-full h-full p-6 ml-auto z-40 flex flex-col gap-4'
+                            *ngIf="drawalTitle=='Withdraw'">
+                            <div class='flex justify-between items-center mb-6'>
+                                <h2 class='text-xl font-semibold'>{{drawalTitle}} Money</h2>
+                                <img src="../../../assets/close copy 2.png" alt="" class="w-4 h-4 cursor-pointer"
+                                    (click)="myDrawal()" />
+                            </div>
+                            <div class='flex justify-between text-sm border-b border-gray-300 '>
+                                <p class="text-gray-700 text-sm font-semibold"> Witdraw From:
+                                </p>
+                                <div class='flex flex-col gap-2 mb-3 text-right'>
+                                    <span>Fola</span>
+                                    <span>6262629087</span>
+                                </div>
+                            </div>
+                            <form action="" class='flex flex-col gap-5 w-full px-5 py-6'>
+                                <div class='flex flex-col gap-2'>
+                                    <label class="text-gray-700 text-sm font-semibold">
+                                        Amount</label>
+                                    <input type="number"
+                                        class='block w-full mt-1 text-sm border px-3 py-3 rounded-lg border-blue-200 focus:border-blue-400 focus:outline-none focus:shadow-outline-blue text-gray-500'
+                                        placeholder='2000000' />
+                                </div>
+                                <div class='flex flex-col gap-2'>
+                                    <label class="text-gray-700 text-sm font-semibold"> Reason
+                                        For Withdraw</label>
+                                    <input type="text"
+                                        class='block w-full mt-1 text-sm border px-3 py-3 rounded-lg border-blue-200 focus:border-blue-400 focus:outline-none focus:shadow-outline-blue text-gray-500'
+                                        placeholder='Reasons for withdraw' />
+                                </div>
+                                <button type='submit'
+                                    class="block w-full px-4 py-3 mt-4 text-base font-medium leading-5 text-center text-white transition-colors duration-150 bg-blue-600 border border-transparent rounded-lg active:bg-blue-600 hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue">
+                                    Withdraw
+                                </button>
+                            </form>
+                        </div>
+                        <div *ngIf="drawalTitle=='Transfer'"
+                            class='w-3/12 transition-all ease-out duration-700 bg-gray-50 h-full p-6 ml-auto z-40 flex flex-col gap-4'>
+                            <div class='flex justify-between items-center mb-6'>
+                                <h2 class='text-xl font-semibold'>{{drawalTitle}} Money</h2>
+                                <img src="../../../assets/close copy 2.png" alt="" class="w-4 h-4 cursor-pointer"
+                                    (click)="myDrawal()" />
+                            </div>
+                            <div class='flex justify-between text-sm border-b border-gray-300 '>
+                                <p class="text-gray-700 text-sm font-semibold"> Transfer From:
+                                </p>
+                                <div class='flex flex-col gap-2 mb-3 text-right'>
+                                    <span>Fola</span>
+                                    <span>6262629087</span>
+                                </div>
+                            </div>
+                            <form action="" class='flex flex-col gap-5 w-full px-5 py-6'>
+                                <div class="flex">
+                                    <div class='flex flex-col gap-2'>
+                                        <label class="text-gray-700 text-sm font-semibold">
+                                            Beneficiary Account No</label>
+                                        <div class="flex">
+                                            <input type="number"
+                                                class='block w-full mt-1 text-sm border px-3 py-3 rounded-l-lg border-blue-200 focus:border-blue-400 focus:outline-none focus:shadow-outline-blue text-gray-500'
+                                                placeholder='34577899999' name="recipient_acc_no"
+                                                [(ngModel)]="transactions.recipient_acc_no" />
+                                            <button class="bg-blue-500 text-white mt-1 px-2 rounded-r-lg"
+                                                (click)="checkAccountNo()">Verify</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class='flex flex-col gap-2'>
+                                    <label class="text-gray-700 text-sm font-semibold">
+                                        Beneficiary Account Name</label>
+                                    <input type="text"
+                                        class='block w-full mt-1 text-sm border px-3 py-3 rounded-lg border-blue-200 focus:border-blue-400 focus:outline-none focus:shadow-outline-blue text-gray-500'
+                                        placeholder='John Doe' />
+                                </div>
+                                <div class='flex flex-col gap-2'>
+                                    <label class="text-gray-700 text-sm font-semibold">
+                                        Amount</label>
+                                    <input type="number"
+                                        class='block w-full mt-1 text-sm border px-3 py-3 rounded-lg border-blue-200 focus:border-blue-400 focus:outline-none focus:shadow-outline-blue text-gray-500'
+                                        placeholder='2000000' />
+                                </div>
+                                <div class='flex flex-col gap-2'>
+                                    <label class="text-gray-700 text-sm font-semibold"> Reason
+                                        For transfer</label>
+                                    <input type="text"
+                                        class='block w-full mt-1 text-sm border px-3 py-3 rounded-lg border-blue-200 focus:border-blue-400 focus:outline-none focus:shadow-outline-blue text-gray-500'
+                                        placeholder='Reasons for transfer' />
+                                </div>
+                                <button type='submit'
+                                    class="block w-full px-4 py-3 mt-4 text-base font-medium leading-5 text-center text-white transition-colors duration-150 bg-blue-600 border border-transparent rounded-lg active:bg-blue-600 hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue">
+                                    Transfer
+                                </button>
+                            </form>
+                        </div>
+                        <div *ngIf="drawalTitle=='Deposit'"
+                            class='w-3/12 transition-all ease-out duration-700 bg-gray-50 h-full p-6 ml-auto z-40 flex flex-col gap-4'>
+                            <div class='flex justify-between items-center mb-6'>
+                                <h2 class='text-xl font-semibold'>{{drawalTitle}} Money</h2>
+                                <img src="../../../assets/close copy 2.png" alt="" class="w-4 h-4 cursor-pointer"
+                                    (click)="myDrawal()" />
+                            </div>
+                            <div class='flex justify-between text-sm border-b border-gray-300 '>
+                                <p class="text-gray-700 text-sm font-semibold"> Deposit to: </p>
+                                <div class='flex flex-col gap-2 mb-3 text-right'>
+                                    <span>Fola</span>
+                                    <span>6262629087</span>
+                                </div>
+                            </div>
+                            <form action="" class='flex flex-col gap-5 w-full px-5 py-6'>
+                                <div class='flex flex-col gap-2'>
+                                    <label class="text-gray-700 text-sm font-semibold">
+                                        Amount</label>
+                                    <input type="number"
+                                        class='block w-full mt-1 text-sm border px-3 py-3 rounded-lg border-blue-200 focus:border-blue-400 focus:outline-none focus:shadow-outline-blue text-gray-500'
+                                        placeholder='2000000' />
+                                </div>
+                                <div class='flex flex-col gap-2'>
+                                    <label class="text-gray-700 text-sm font-semibold"> Reason
+                                        For Deposit</label>
+                                    <input type="text"
+                                        class='block w-full mt-1 text-sm border px-3 py-3 rounded-lg border-blue-200 focus:border-blue-400 focus:outline-none focus:shadow-outline-blue text-gray-500'
+                                        placeholder='Reasons for deposit' />
+                                </div>
+                                <button type='submit'
+                                    class="block w-full px-4 py-3 mt-4 text-base font-medium leading-5 text-center text-white transition-colors duration-150 bg-blue-600 border border-transparent rounded-lg active:bg-blue-600 hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue">
+                                    Deposit
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Transactions Table -->
+            <div class="w-[17rem] md:w-full overflow-x-auto md:overflow-hidden rounded-lg shadow-xs">
+                <div class="w-full overflow-x-auto">
+                    <table class="w-full whitespace-no-wrap">
+                        <thead>
+                            <tr
+                                class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b bg-gray-50">
+                                <th class="px-4 py-3">Account Name</th>
+                                <th class="px-4 py-3">Description</th>
+                                <th class="px-4 py-3">Account No</th>
+                                <th class="px-4 py-3">Amount</th>
+                                <th class="px-4 py-3">Status</th>
+                                <th class="px-4 py-3">Date</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y">
+                            <tr class="text-gray-700">
+                                <td class="px-4 py-3">
+                                    <div class="flex items-center text-sm">
+                                        <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
+                                            <img class="object-cover w-full h-full rounded-full"
+                                                src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
+                                                alt="" loading="lazy" />
+                                            <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true">
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold">Hans Burger</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-4 py-3 text-sm">
+                                    Paid for a service
+                                </td>
+                                <td class="px-4 py-3 text-sm">
+                                    6262634209
+                                </td>
+                                <td class="px-4 py-3 text-sm">
+                                    $ 863.45
+                                </td>
+                                <td class="px-4 py-3 text-xs">
+                                    <span
+                                        class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full ">
+                                        Received
+                                    </span>
+                                </td>
+                                <td class="px-4 py-3 text-sm">
+                                    6/10/2020
+                                </td>
+                            </tr>
+
+                            <tr class="text-gray-700">
+                                <td class="px-4 py-3">
+                                    <div class="flex items-center text-sm">
+                                        <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
+                                            <img class="object-cover w-full h-full rounded-full"
+                                                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&facepad=3&fit=facearea&s=707b9c33066bf8808c934c8ab394dff6"
+                                                alt="" loading="lazy" />
+                                            <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true">
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold">Jolina Angelie</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-4 py-3 text-sm">
+                                    Transfer to a friend
+                                </td>
+                                <td class="px-4 py-3 text-sm">
+                                    6262632976
+                                </td>
+                                <td class="px-4 py-3 text-sm">
+                                    $ 369.95
+                                </td>
+                                <td class="px-4 py-3 text-xs">
+                                    <span
+                                        class="px-2 py-1 font-semibold leading-tight text-orange-700 bg-orange-100 rounded-full">
+                                        Transferred
+                                    </span>
+                                </td>
+                                <td class="px-4 py-3 text-sm">
+                                    6/10/2020
+                                </td>
+                            </tr>
+
+                            <tr class="text-gray-700">
+                                <td class="px-4 py-3">
+                                    <div class="flex items-center text-sm">
+                                        <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
+                                            <img class="object-cover w-full h-full rounded-full"
+                                                src="https://images.unsplash.com/photo-1551069613-1904dbdcda11?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
+                                                alt="" loading="lazy" />
+                                            <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true">
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold">Sarah Curry</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-4 py-3 text-sm">
+                                    Pay a bill
+                                </td>
+                                <td class="px-4 py-3 text-sm">
+                                    6262617897
+                                </td>
+                                <td class="px-4 py-3 text-sm">
+                                    $ 86.00
+                                </td>
+                                <td class="px-4 py-3 text-xs">
+                                    <span
+                                        class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full ">
+                                        Cancelled
+                                    </span>
+                                </td>
+                                <td class="px-4 py-3 text-sm">
+                                    6/10/2020
+                                </td>
+                            </tr>
+
+                            <tr class="text-gray-700">
+                                <td class="px-4 py-3">
+                                    <div class="flex items-center text-sm">
+                                        <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
+                                            <img class="object-cover w-full h-full rounded-full"
+                                                src="https://images.unsplash.com/photo-1551006917-3b4c078c47c9?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
+                                                alt="" loading="lazy" />
+                                            <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true">
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold">Rulia Joberts</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-4 py-3 text-sm">
+                                    Transfer to a friend
+                                </td>
+                                <td class="px-4 py-3 text-sm">
+                                    6262687098
+                                </td>
+                                <td class="px-4 py-3 text-sm">
+                                    $ 1276.45
+                                </td>
+                                <td class="px-4 py-3 text-xs">
+                                    <span
+                                        class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full">
+                                        Received
+                                    </span>
+                                </td>
+                                <td class="px-4 py-3 text-sm">
+                                    6/10/2020
+                                </td>
+                            </tr>
+
+                            <tr class="text-gray-700">
+                                <td class="px-4 py-3">
+                                    <div class="flex items-center text-sm">
+                                        <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
+                                            <img class="object-cover w-full h-full rounded-full"
+                                                src="https://images.unsplash.com/photo-1546456073-6712f79251bb?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
+                                                alt="" loading="lazy" />
+                                            <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true">
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold">Wenzel Dashington</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-4 py-3 text-sm">
+                                    For fun
+                                </td>
+                                <td class="px-4 py-3 text-sm">
+                                    6262628975
+                                </td>
+                                <td class="px-4 py-3 text-sm">
+                                    $ 863.45
+                                </td>
+                                <td class="px-4 py-3 text-xs">
+                                    <span
+                                        class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full">
+                                        Received
+                                    </span>
+                                </td>
+                                <td class="px-4 py-3 text-sm">
+                                    6/10/2020
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

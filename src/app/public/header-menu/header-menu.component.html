@@ -1,0 +1,226 @@
+<!-- Desktop View -->
+<div
+    class="hidden lg:flex px-4 md:px-10 flex items-start gap-14 md:gap-[50rem] py-3 border-b border-gray-200 shadow-lg w-full fixed bg-white py-2 md:py-5 z-40">
+    <div class="flex gap-5">
+        <button type="button" class="hidden md:inline-flex">
+            <mat-icon aria-hidden="false" aria-label="menu icon" fontIcon="menu"></mat-icon>
+        </button>
+        <h3 class="font-semibold" style="margin: 0 !important;">{{username}}</h3>
+    </div>
+
+    <div class="flex gap-3 md:gap-4">
+        <button mat-icon-button [matMenuTriggerFor]="notification" aria-label="Profile with a menu" class="mt-1">
+            <mat-icon class="cursor-pointer text-[28px]">notifications_none</mat-icon>
+        </button>
+        <mat-menu #notification="matMenu" class="w-56">
+            <button mat-menu-item style="padding: 2px !important;" (click)="myNotification()">
+                <div class="dark:bg-gray-700 dark:text-gray-200 px-2 py-3 flex gap-2 rounded-md">
+                    <!-- img section -->
+                    <div class='rounded-full focus:shadow-outline-blue focus:outline-none'>
+                        <img class="object-cover w-8 h-8 rounded-full"
+                            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&facepad=3&fit=facearea&s=707b9c33066bf8808c934c8ab394dff6"
+                            alt="" aria-hidden="true" />
+                    </div>
+                    <!-- Text Section -->
+                    <div class='flex flex-col text-white'>
+                        <span class="text-sm">Admin</span>
+                        <span class="text-[11px] -mt-4">You need to verify...</span>
+                    </div>
+                </div>
+            </button>
+            <button mat-menu-item class="mt-2" style="padding: 2px !important;" (click)="myNotification()">
+                <div class="dark:bg-gray-700 dark:text-gray-200 px-2 py-3 flex gap-2 rounded-md">
+                    <!-- img section -->
+                    <div class='rounded-full focus:shadow-outline-blue focus:outline-none'>
+                        <img class="object-cover w-8 h-8 rounded-full"
+                            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&facepad=3&fit=facearea&s=707b9c33066bf8808c934c8ab394dff6"
+                            alt="" aria-hidden="true" />
+                    </div>
+                    <!-- Text Section -->
+                    <div class='flex flex-col text-white'>
+                        <span class="text-sm">Admin</span>
+                        <span class="text-[11px] -mt-4">You need to verify...</span>
+                    </div>
+                </div>
+            </button>
+            <button mat-menu-item class="mt-2" style="padding: 2px !important;" (click)="myNotification()">
+                <div class="dark:bg-gray-700 dark:text-gray-200 px-2 py-3 flex gap-2 rounded-md">
+                    <!-- img section -->
+                    <div class='rounded-full focus:shadow-outline-blue focus:outline-none'>
+                        <img class="object-cover w-8 h-8 rounded-full"
+                            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&facepad=3&fit=facearea&s=707b9c33066bf8808c934c8ab394dff6"
+                            alt="" aria-hidden="true" />
+                    </div>
+                    <!-- Text Section -->
+                    <div class='flex flex-col text-white'>
+                        <span class="text-sm">Admin</span>
+                        <span class="text-[11px] -mt-4">You need to verify...</span>
+                    </div>
+                </div>
+            </button>
+        </mat-menu>
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Profile with a menu">
+            <div class="relative hidden w-9 h-9 mr-3 rounded-full md:block">
+                <img class="object-cover w-full h-full rounded-full"
+                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&facepad=3&fit=facearea&s=707b9c33066bf8808c934c8ab394dff6"
+                    alt="" loading="lazy" />
+                <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true">
+                </div>
+            </div>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item routerLink="/user/profile">
+                <mat-icon>account_circle</mat-icon>
+                <span>Edit Profile</span>
+            </button>
+            <button mat-menu-item>
+                <mat-icon>help</mat-icon>
+                <span>Help</span>
+            </button>
+            <button mat-menu-item (click)="logout()">
+                <mat-icon>logout</mat-icon>
+                <span>Log Out</span>
+            </button>
+        </mat-menu>
+    </div>
+</div>
+
+<!-- Mobile View -->
+<div
+    class="px-4 lg:hidden md:px-10 py-5 md:justify-between flex items-start gap-10 py-3 border-b border-gray-200 shadow-md w-full fixed bg-white py-2 z-40">
+    <div class="flex gap-5">
+        <h3 class="font-semibold" style="margin: 0 !important;">{{username}} Dashboard</h3>
+    </div>
+
+    <div class="flex gap-4">
+        <button mat-icon-button [matMenuTriggerFor]="notification" aria-label="Profile with a menu" class="mt-[2px]">
+            <mat-icon class="cursor-pointer">notifications_none</mat-icon>
+        </button>
+        <!-- Notification_menu -->
+        <mat-menu #notification="matMenu" class="">
+            <button mat-menu-item style="padding: 2px !important;" (click)="myNotification()">
+                <div class="dark:bg-gray-700 dark:text-gray-200 px-2 py-3 flex gap-2 rounded-md">
+                    <!-- img section -->
+                    <div class='rounded-full focus:shadow-outline-blue focus:outline-none'>
+                        <img class="object-cover w-8 h-8 rounded-full"
+                            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&facepad=3&fit=facearea&s=707b9c33066bf8808c934c8ab394dff6"
+                            alt="" aria-hidden="true" />
+                    </div>
+                    <!-- Text Section -->
+                    <div class='flex flex-col text-white'>
+                        <span class="text-sm">Admin</span>
+                        <span class="text-[11px] -mt-4">You need to verify...</span>
+                    </div>
+                </div>
+            </button>
+            <button mat-menu-item class="mt-2" style="padding: 2px !important;" (click)="myNotification()">
+                <div class="dark:bg-gray-700 dark:text-gray-200 px-2 py-3 flex gap-2 rounded-md">
+                    <!-- img section -->
+                    <div class='rounded-full focus:shadow-outline-blue focus:outline-none'>
+                        <img class="object-cover w-8 h-8 rounded-full"
+                            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&facepad=3&fit=facearea&s=707b9c33066bf8808c934c8ab394dff6"
+                            alt="" aria-hidden="true" />
+                    </div>
+                    <!-- Text Section -->
+                    <div class='flex flex-col text-white'>
+                        <span class="text-sm">Admin</span>
+                        <span class="text-[11px] -mt-4">You need to verify...</span>
+                    </div>
+                </div>
+            </button>
+            <button mat-menu-item class="mt-2" style="padding: 2px !important;" (click)="myNotification()">
+                <div class="dark:bg-gray-700 dark:text-gray-200 px-2 py-3 flex gap-2 rounded-md">
+                    <!-- img section -->
+                    <div class='rounded-full focus:shadow-outline-blue focus:outline-none'>
+                        <img class="object-cover w-8 h-8 rounded-full"
+                            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&facepad=3&fit=facearea&s=707b9c33066bf8808c934c8ab394dff6"
+                            alt="" aria-hidden="true" />
+                    </div>
+                    <!-- Text Section -->
+                    <div class='flex flex-col text-white'>
+                        <span class="text-sm">Admin</span>
+                        <span class="text-[11px] -mt-4">You need to verify...</span>
+                    </div>
+                </div>
+            </button>
+        </mat-menu>
+
+        <!-- Profile Icon -->
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Profile with a menu">
+            <mat-icon>account_circle</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+                <mat-icon>account_circle</mat-icon>
+                <span>Edit Profile</span>
+            </button>
+            <button mat-menu-item>
+                <mat-icon>help</mat-icon>
+                <span>Help</span>
+            </button>
+            <button mat-menu-item (click)="logout()">
+                <mat-icon>logout</mat-icon>
+                <span>Log Out</span>
+            </button>
+        </mat-menu>
+        <button *ngIf="!status" type="button" (click)="showSideMenu()" class="mt-[2px]">
+            <mat-icon aria-hidden="false" aria-label="menu icon" fontIcon="menu"></mat-icon>
+        </button>
+        <img *ngIf="status" src="../../../assets/close.png" class="w-6 h-6 cursor-pointer" alt=""
+            (click)="showSideMenu()">
+    </div>
+    <!-- <div class="flex gap-5"> -->
+    <!-- </div> -->
+</div>
+
+<div *ngIf="status" class="absolute top-0 left-0 bg-black/50 w-full min-h-screen h-full flex cursor-pointer">
+    <aside class="w-60 px-6 overflow-y-auto h-full bg-white dark:bg-gray-800 md:block flex-shrink-0 fixed py-2">
+        <div class="py-4 text-gray-500 dark:text-gray-400 flex flex-col gap-4">
+            <a class="text-lg font-bold text-gray-800 dark:text-gray-200" href="#">
+                Banka Bank
+            </a>
+            <ul class="px-2">
+                <li
+                    class="py-3 flex gap-3 items-center w-full text-sm transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100 hover:ml-1 transition-all ease-in duration-300">
+                    <mat-icon aria-hidden="false" aria-label="home icon" fontIcon="home"></mat-icon>
+                    <a routerLink="/user/dashboard" class="mt-2">Dashboard</a>
+                </li>
+                <li
+                    class="py-3 flex gap-3 items-center w-full text-sm transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100 hover:ml-1 transition-all ease-in duration-300">
+                    <mat-icon aria-hidden="false" aria-label="account icon"
+                        fontIcon="account_balance_wallet"></mat-icon>
+                    <a routerLink="/user/account-setting" class="mt-2">Account Setting</a>
+                </li>
+                <li
+                    class="py-3 flex gap-3 items-center w-full text-sm transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100 hover:ml-1 transition-all ease-in duration-300">
+                    <mat-icon aria-hidden="false" aria-label="transaction icon" fontIcon="money"></mat-icon>
+                    <a routerLink="/user/my-transactions" class="mt-2">My Transaction</a>
+                </li>
+                <li
+                    class="py-3 flex gap-3 items-center w-full text-sm transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100 hover:ml-1 transition-all ease-in duration-300">
+                    <mat-icon aria-hidden="false" aria-label="profile icon" fontIcon="account_circle"></mat-icon>
+                    <a routerLink="/user/profile" class="mt-2">Profile</a>
+                </li>
+                <li
+                    class="py-3 flex gap-3 items-center w-full text-sm transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100 hover:ml-1 transition-all ease-in duration-300">
+                    <mat-icon aria-hidden="false" aria-label="notification icon"
+                        fontIcon="notifications_none"></mat-icon>
+                    <a routerLink="/user/notification" class="mt-2">Notification</a>
+                </li>
+                <li
+                    class="py-3 flex gap-3 items-center w-full text-sm transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100 hover:ml-1 transition-all ease-in duration-300">
+                    <mat-icon aria-hidden="false" aria-label="home icon" fontIcon="help"></mat-icon>
+                    <a routerLink="/user/help" class="mt-2">Help</a>
+                </li>
+                <li class="mt-2">
+                    <button
+                        class="flex items-center justify-between w-32 px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-blue-600 border border-transparent rounded-lg active:bg-blue-600 hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue-700">
+                        <a routerLink='/user/sign-in'>Logout</a>
+                        <mat-icon aria-hidden="false" aria-label="home icon" fontIcon="logout"></mat-icon>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+</div>

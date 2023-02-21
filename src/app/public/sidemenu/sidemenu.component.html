@@ -1,0 +1,53 @@
+<aside
+    class="z-40 hidden lg:block w-64 overflow-y-auto overflow-x-hidden h-full bg-white dark:bg-gray-800 flex-shrink-0 fixed py-2">
+    <div class="py-4 text-gray-500 dark:text-gray-400">
+        <a class="ml-12 text-lg font-bold text-gray-800 dark:text-gray-200" href="#">
+            Banka Bank
+        </a>
+        <ul class="mt-12">
+            <li
+                class="px-6 py-3 flex gap-3 items-center w-full text-sm transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100 hover:ml-1 transition-all ease-in duration-300">
+                <mat-icon aria-hidden="false" aria-label="home icon" fontIcon="home"></mat-icon>
+                <a routerLink="/user/dashboard" class="mt-2">Dashboard</a>
+            </li>
+            <li
+                class="px-6 py-3 flex gap-3 items-center w-full text-sm transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100 hover:ml-1 transition-all ease-in duration-300">
+                <mat-icon aria-hidden="false" aria-label="settings icon" fontIcon="settings"></mat-icon>
+                <a routerLink="/user/account-setting" class="mt-2">Account Setting</a>
+            </li>
+            <li
+                class="px-6 py-3 flex gap-3 items-center w-full text-sm transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100 hover:ml-1 transition-all ease-in duration-300">
+                <mat-icon aria-hidden="false" aria-label="transaction icon" fontIcon="money"></mat-icon>
+                <a routerLink="/user/my-transactions" class="mt-2">My Transaction</a>
+            </li>
+            <li
+                class="px-6 py-3 flex gap-3 items-center w-full text-sm transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100 hover:ml-1 transition-all ease-in duration-300">
+                <mat-icon aria-hidden="false" aria-label="profile icon" fontIcon="account_circle"></mat-icon>
+                <a routerLink="/user/profile" class="mt-2">Profile</a>
+            </li>
+            <li
+                class="px-6 py-3 flex gap-3 items-center w-full text-sm transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100 hover:ml-1 transition-all ease-in duration-300">
+                <mat-icon aria-hidden="false" aria-label="notification icon" fontIcon="notifications_none"></mat-icon>
+                <a routerLink="/user/notification" class="mt-2">Notification</a>
+            </li>
+            <li
+                class="cursor-default px-6 py-3 flex gap-3 items-center w-full text-sm transition-colors duration-150 dark:text-gray-400 transition-all ease-in duration-300">
+                <mat-icon aria-hidden="false" aria-label="activities icon" fontIcon="account_balance_wallet"></mat-icon>
+                <a routerLink="/user/settings" class="mt-2 cursor-default">Activities</a>
+                <div class="bg-red-800 px-2 rounded mt-2 text-white py-1">Coming Soon</div>
+            </li>
+            <li
+                class="px-6 py-3 flex gap-3 items-center w-full text-sm transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100 hover:ml-1 transition-all ease-in duration-300">
+                <mat-icon aria-hidden="false" aria-label="home icon" fontIcon="help"></mat-icon>
+                <a routerLink="/user/help" class="mt-2">Help</a>
+            </li>
+            <li class="px-6 my-6">
+                <button
+                    class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-blue-600 border border-transparent rounded-lg active:bg-blue-600 hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue-700">
+                    <a (click)="logout()">Logout</a>
+                    <mat-icon aria-hidden="false" aria-label="home icon" fontIcon="logout"></mat-icon>
+                </button>
+            </li>
+        </ul>
+    </div>
+</aside>

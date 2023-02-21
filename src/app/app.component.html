@@ -1,0 +1,15 @@
+<main class="flex flex-col h-screen bg-[#F8FAFB]" *ngIf="!user.IsLoggedIn()">
+    <ng-container *ngIf="isMenuVisible">
+        <app-menu></app-menu>
+        <router-outlet></router-outlet>
+        <app-footer></app-footer>
+    </ng-container>
+    <ng-container *ngIf="!isMenuVisible">
+        <router-outlet></router-outlet>
+    </ng-container>
+</main>
+
+<main class="lg:flex min-h-screen bg-[#F8FAFB] md:gap-32" *ngIf="user.IsLoggedIn()">
+    <app-sidemenu></app-sidemenu>
+    <router-outlet></router-outlet>
+</main>

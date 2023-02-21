@@ -1,0 +1,16 @@
+<div class="w-full bg-[#F8FAFB] lg:mt-20 pt-16">
+    <p [ngStyle]="styleValue">{{adminHeader | lowercase}}</p>
+    <p [style.color]="colorName" [style.font-size]="fontSize">Admin salary is {{salary | currency: 'NGN'}}</p>
+    <p [ngClass]="className">{{salary | percent}}</p>
+    <a routerLink="add" class="text-blue-500 underline">Add Contact</a>
+    <a routerLink="edit/1" class="ml-3 text-blue-500 underline">Edit Contact</a>
+    <br>
+    <button (click)="clickMe('click here')">Click Me</button> <br>
+    <input #txt [value]="isDisabled" [disabled]="isDisabled" class="border" type="text" (change)="clickMe(txt.value)">
+    <br>
+    <br>
+    <input class="border" type="text" [(ngModel)]="adminHeader">
+</div>
+<div>
+    <router-outlet></router-outlet>
+</div>
