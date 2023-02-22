@@ -1,4 +1,4 @@
-<ng-container *ngIf="isMenuVisible">
+<ng-container *ngIf="!user.IsLoggedIn() && isMenuVisible">
     <main class="flex flex-col h-screen bg-[#F8FAFB]">
         <app-menu></app-menu>
         <router-outlet></router-outlet>

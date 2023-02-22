@@ -38,7 +38,9 @@ export class TransactionsComponent implements OnInit {
   }
 
   checkAccountNo() {
-    console.log(this.transactions.recipient_acc_no);
+    let recipient_acc_no = this.transactions.recipient_acc_no.toString();
+    console.log(typeof (recipient_acc_no));
+
 
     this.transactionService.VerifyReceiptAccNo(this.transactions.recipient_acc_no).subscribe(
       item => {
