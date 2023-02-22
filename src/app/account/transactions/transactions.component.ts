@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { TransactionService } from 'src/app/services/transaction.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-transactions',
@@ -12,25 +13,55 @@ export class TransactionsComponent implements OnInit {
 
   drawalTitle?: any;
   drawalStat?: boolean;
+  currency: any = 'NGN';
 
   public transactions = {
+    sender_acc_no: '',
     recipient_acc_no: '',
     recipient_name: '',
     amount: '',
-    date: '',
-    status: '',
-    transaction_id: '',
-    sender_acc_no: '',
-    sender_name: '',
-    sender_id: ''
+    note: '',
+    recipient_id: ''
   }
   errorMessage: any;
   loading = false;
   recipientResponse?: any;
+  response?: any;
+  transferloading: any = false;
 
-  constructor(private transactionService: TransactionService, private _snackbar: MatSnackBar, private router: Router) { }
+  userProfile: any;
+
+  userProfileDetails = {
+    account_no: '',
+    balance: '',
+  };
+  account_no: any;
+
+  constructor(private transactionService: TransactionService, private _snackbar: MatSnackBar, private router: Router, private auth: UserService) { }
 
   ngOnInit(): void {
+    this.auth.GetProfile().subscribe(
+      item => {
+        this.userProfile = item.profile;
+        console.log(this.userProfile.username);
+        this.account_no = this.userProfile.account_no;
+        this.userProfileDetails = {
+          account_no: this.userProfile.account_no,
+          balance: this.userProfile.balance,
+        };
+        console.log("Hello", this.userProfileDetails);
+      },
+      errorResponse => {
+        this.errorMessage = errorResponse;
+        console.log(this.errorMessage);
+        if (this.errorMessage.error.message == 'jwt expired') {
+          console.log('err expired');
+          localStorage.removeItem('token');
+          localStorage.removeItem('auth_tkn');
+          this.router.navigate(['sign-in'])
+        }
+      }
+    );
   }
 
   drawal(value: any) {
@@ -49,14 +80,39 @@ export class TransactionsComponent implements OnInit {
       item => {
         this.recipientResponse = item;
         console.log('item', item);
-
-        // this._snackbar.open('Recipient Found', "okay");
         this.loading = false;
         this.transactions.recipient_name = this.recipientResponse.recipient_name;
 
       },
       errorResponse => {
         this.loading = false;
+        this.errorMessage = errorResponse;
+        console.log(this.errorMessage.error.message);
+        this._snackbar.open(this.errorMessage.error.message, "okay");
+        if (this.errorMessage.error.message == 'jwt expired') {
+          this.router.navigate(['sign-in']);
+        }
+      });
+  }
+
+  transferMoney() {
+    this.transferloading = true;
+    this.transactions.recipient_id = this.recipientResponse.recipient_id;
+    this.transactions.sender_acc_no = this.userProfileDetails.account_no;
+    console.log('transactions', this.transactions);
+
+    this.transactionService.transferMoney(this.transactions).subscribe(
+      response => {
+        this.transferloading = false;
+        this.response = response;
+        console.log('response', this.response);
+        this._snackbar.open('Transaction Succssful', "okay");
+        this.drawalStat = false;
+        // this.transactions.recipient_name = this.recipientResponse.recipient_name;
+
+      },
+      errorResponse => {
+        this.transferloading = false;
         this.errorMessage = errorResponse;
         console.log(this.errorMessage.error.message);
         this._snackbar.open(this.errorMessage.error.message, "okay");

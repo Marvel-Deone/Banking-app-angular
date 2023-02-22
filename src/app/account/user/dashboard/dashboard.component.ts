@@ -10,6 +10,7 @@ import { UserService } from 'src/app/services/user.service';
 export class DashboardComponent implements OnInit {
 
   tokenMessage?: any;
+  currency: any = 'NGN';
   token?: any;
   id?: any;
   userProfile?: any;
@@ -18,13 +19,14 @@ export class DashboardComponent implements OnInit {
   tokenObj?: any;
   auth_tkn?: any;
   account_no?: any;
+  balance?: any;
   userProfileDetails?: {
     id: '',
     username: '',
     email: '',
     account_no: '',
-    address: '',
     balance: '',
+    address: '',
     country: '',
     dob: '',
     first_name: '',
@@ -35,7 +37,7 @@ export class DashboardComponent implements OnInit {
     state: ''
   }
 
-  constructor(private service: UserService, private router: Router) { }
+  constructor(private auth: UserService, private router: Router) { }
 
   ngOnInit(): void {
 
@@ -53,7 +55,7 @@ export class DashboardComponent implements OnInit {
 
 
 
-    this.service.GetProfile().subscribe(
+    this.auth.GetProfile().subscribe(
       item => {
         this.userProfile = item.profile;
         console.log(this.userProfile.username);
@@ -86,7 +88,7 @@ export class DashboardComponent implements OnInit {
           this.router.navigate(['sign-in'])
         }
       }
-    )
+    );
 
   }
 

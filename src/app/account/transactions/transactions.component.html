@@ -32,6 +32,25 @@
                         </p>
                     </div>
                 </div>
+
+                <div class="w-full md:w-[14.5rem] flex items-center p-4 bg-white rounded-lg shadow-xs">
+                    <div class="p-3 mr-4 text-green-500 bg-green-100 rounded-full">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="mb-2 text-sm font-medium text-gray-600">
+                            Account balance
+                        </p>
+                        <p class="text-lg font-semibold text-gray-700">
+                            {{userProfileDetails.balance| currency:currency:'symbol-narrow'}}
+                        </p>
+                    </div>
+                </div>
+
                 <div class="w-full md:w-[14.5rem]  flex items-center p-4 bg-white rounded-lg shadow-xs">
                     <div class="p-3 mr-4 text-green-500 bg-green-100 rounded-full">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -66,7 +85,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="w-full md:w-[14.5rem] flex items-center p-4 bg-white rounded-lg shadow-xs">
+                <!-- <div class="w-full md:w-[14.5rem] flex items-center p-4 bg-white rounded-lg shadow-xs">
                     <div class="p-3 mr-4 text-blue-500 bg-blue-100 rounded-full">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                             <path
@@ -82,7 +101,7 @@
                             3
                         </p>
                     </div>
-                </div>
+                </div> -->
             </div>
             <!-- Action Button -->
             <div class='block lg:flex gap-3 mt-7'>
@@ -249,18 +268,26 @@
                                         Amount</label>
                                     <input type="number"
                                         class='block w-full mt-1 text-sm border px-3 py-3 rounded-lg border-blue-200 focus:border-blue-400 focus:outline-none focus:shadow-outline-blue text-gray-500'
-                                        placeholder='2000000' />
+                                        placeholder='2000000' name="amount" [(ngModel)]="transactions.amount" />
                                 </div>
                                 <div class='flex flex-col gap-2'>
                                     <label class="text-gray-700 text-sm font-semibold"> Reason
                                         For transfer</label>
                                     <input type="text"
                                         class='block w-full mt-1 text-sm border px-3 py-3 rounded-lg border-blue-200 focus:border-blue-400 focus:outline-none focus:shadow-outline-blue text-gray-500'
-                                        placeholder='Reasons for transfer' />
+                                        placeholder='Reasons for transfer' name="note"
+                                        [(ngModel)]="transactions.note" />
                                 </div>
-                                <button type='submit'
-                                    class="block w-full px-4 py-3 mt-4 text-base font-medium leading-5 text-center text-white transition-colors duration-150 bg-blue-600 border border-transparent rounded-lg active:bg-blue-600 hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue">
+                                <button *ngIf="!transferloading" type='submit' (click)="transferMoney()"
+                                    class="block w-full px-4 py-3 mt-4 mb-2 text-base font-medium leading-5 text-center text-white transition-colors duration-150 bg-blue-600 border border-transparent rounded-lg active:bg-blue-600 hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue">
                                     Transfer
+                                </button>
+                                <button *ngIf="transferloading" disabled type="submit"
+                                    class="block w-full px-4 flex items-center py-3 mt-4 mb-2 text-base font-medium leading-5 text-center text-white transition-colors duration-150 bg-blue-600 border border-transparent rounded-lg active:bg-blue-600 hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue">
+                                    <div class="flex mx-auto gap-2">
+                                        <span>Loading</span>
+                                        <img src="assets/spinner.gif" alt="" class="w-6 h-6">
+                                    </div>
                                 </button>
                             </div>
                         </div>

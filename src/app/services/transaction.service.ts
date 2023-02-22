@@ -18,12 +18,19 @@ export class TransactionService {
     const URI = this.uriseg + '/user/find_recipient';
     this.user_token = localStorage.getItem('auth_tkn');
     const token = this.user_token.replace(/['"]+/g, '');
-    console.log(token);
-
     this.header = { headers: { Authorization: `${token}` } };
     return this.http.post(URI, inputdata, this.header).pipe(map(response => {
       return response;
-      // console.log(response);
+    }));
+  }
+
+  transferMoney(inputdata: any) {
+    const URI = this.uriseg + '/user/transfer';
+    this.user_token = localStorage.getItem('auth_tkn');
+    const token = this.user_token.replace(/['"]+/g, '');
+    this.header = { headers: { Authorization: `${token}` } };
+    return this.http.post(URI, inputdata, this.header).pipe(map(response => {
+      return response;
     }));
   }
 }
