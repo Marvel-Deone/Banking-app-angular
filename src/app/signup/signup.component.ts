@@ -22,15 +22,17 @@ export class SignupComponent implements OnInit {
   constructor(private fb: FormBuilder, private service: UserService, private router: Router, private _snackbar: MatSnackBar) { }
 
   public signupForm?: any;
-  public hide: boolean = false;
-  public hideConfirm: boolean = false;
+  public hide: boolean = true;
+  public hideConfirm: boolean = true;
   public respdata?: any;
   public sendOtpdata?: any;
   loading = false;
   ngOnInit(): void {
     this.signupForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      username: ['Folagbade', [Validators.required, Validators.minLength(2)]],
+      first_name: ['', [Validators.required, Validators.minLength(2)]],
+      last_name: ['', [Validators.required, Validators.minLength(2)]],
+      username: ['', [Validators.required, Validators.minLength(2)]],
       password: ['', [Validators.required, Validators.minLength(8), Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/)]],
       confirmpassword: ['', Validators.required,],
     },
@@ -64,14 +66,14 @@ export class SignupComponent implements OnInit {
     console.log(form.value);
     this.service.Register(form.value).subscribe(item => {
       this.respdata = item;
-      if (this.respdata.success == true) {
-        this._snackbar.open("Registration Successful", "okay");
-        this.router.navigate(['sign-in']);
+      this._snackbar.open("Registration Successful", "okay");
+      this.router.navigate(['sign-in']);
+      this.loading = false;
+    },
+      errorResponse => {
         this.loading = false;
-      } else {
         console.log('Registration Failed', this.respdata);
         this._snackbar.open("Registration Failed", "okay");
-      }
-    })
+      })
   }
 }

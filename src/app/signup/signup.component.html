@@ -1,4 +1,4 @@
-<div class="w-full md:max-w-xl 2xl:max-w-4xl mx-auto flex px-8 py-14 md:p-[38px] lg:p-14 justify-center items-center">
+<div class="w-full md:max-w-xl 2xl:max-w-4xl mx-auto flex px-8 py-12 md:p-[38px] lg:p-8 justify-center items-center">
     <div
         class="flex 2xl:mt-96 md:bg-white md:rounded-lg md:shadow-xl flex-col items-center justify-center md:p-8 w-full">
         <div class="mb-4">
@@ -7,8 +7,38 @@
         </div>
         <form [formGroup]="signupForm" (ngSubmit)="onSubmit(signupForm)" class="w-full flex flex-col gap-1">
             <mat-form-field appearance="fill">
+                <mat-label>First Name</mat-label>
+                <input matInput formControlName="first_name" [errorStateMatcher]="matcher" placeholder="John">
+                <!-- <mat-error *ngIf="signupForm.get('username').hasError('required')"> -->
+                <mat-error *ngIf="signupForm.get('first_name')?.hasError('required')">
+                    First Name is <strong>required</strong>
+                </mat-error>
+                <mat-error *ngIf="signupForm.get('first_name')?.hasError('required')">
+                    First Name is <strong>required</strong>
+                </mat-error>
+                <mat-error *ngIf="signupForm.get('first_name')?.hasError('minlength')">
+                    First Name must be up to 2 character and above
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Last Name</mat-label>
+                <input matInput formControlName="last_name" [errorStateMatcher]="matcher" placeholder="Doe">
+                <!-- <mat-error *ngIf="signupForm.get('username').hasError('required')"> -->
+                <mat-error *ngIf="signupForm.get('last_name')?.hasError('required')">
+                    Last Name is <strong>required</strong>
+                </mat-error>
+                <mat-error *ngIf="signupForm.get('last_name')?.hasError('required')">
+                    Last Name is <strong>required</strong>
+                </mat-error>
+                <mat-error *ngIf="signupForm.get('last_name')?.hasError('minlength')">
+                    Last Name must be up to 2 character and above
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
                 <mat-label>Username</mat-label>
-                <input matInput formControlName="username" [errorStateMatcher]="matcher" placeholder="John Doe">
+                <input matInput formControlName="username" [errorStateMatcher]="matcher" placeholder="JohnD">
                 <!-- <mat-error *ngIf="signupForm.get('username').hasError('required')"> -->
                 <mat-error *ngIf="signupForm.get('username')?.hasError('required')">
                     Username is <strong>required</strong>
@@ -20,6 +50,7 @@
                     Username must be up to 2 character and above
                 </mat-error>
             </mat-form-field>
+
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Email</mat-label>
                 <input type="email" matInput formControlName="email" [errorStateMatcher]="matcher"
@@ -33,13 +64,14 @@
                     Email is <strong>required</strong>
                 </mat-error>
             </mat-form-field>
+
             <mat-form-field appearance="fill">
                 <mat-label>Password</mat-label>
                 <input matInput formControlName="password" [errorStateMatcher]="matcher"
                     [type]="hide ? 'password' : 'text'" placeholder="************">
                 <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                     [attr.aria-pressed]="hide">
-                    <!-- <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon> -->
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
                 <mat-error *ngIf="signupForm.get('password').hasError('required')">
                     Password is <strong>required</strong>
@@ -51,13 +83,14 @@
                     Password must contain at least 1 uppercase, 1 lower case, 1 number and 1 special character
                 </mat-error>
             </mat-form-field>
+
             <mat-form-field appearance="fill">
                 <mat-label>Confirm Password</mat-label>
                 <input matInput formControlName="confirmpassword" [errorStateMatcher]="matcher"
                     [type]="hideConfirm ? 'password' : 'text'" placeholder="************">
                 <button mat-icon-button matSuffix (click)="hideConfirm = !hideConfirm"
                     [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                    <!-- <mat-icon>{{hideConfirm ? 'visibility_off' : 'visibility'}}</mat-icon> -->
+                    <mat-icon>{{hideConfirm ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
                 <mat-error *ngIf="signupForm.get('confirmpassword').hasError('required')">
                     This feid is <strong>required</strong>
@@ -66,6 +99,7 @@
                     Password <strong>mismatch</strong>
                 </mat-error>
             </mat-form-field>
+
             <button *ngIf="!loading" type="submit" [disabled]="signupForm.invalid"
                 class="bg-blue-700 w-full text-white py-3 md:px-5 px-8 rounded-md hover:bg-blue-600 transition-all ease-in duration-300 font-normal mt-2 focus:outline-none">Create
                 an account</button>

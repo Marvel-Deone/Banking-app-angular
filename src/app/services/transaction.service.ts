@@ -22,7 +22,8 @@ export class TransactionService {
 
     this.header = { headers: { Authorization: `${token}` } };
     return this.http.post(URI, inputdata, this.header).pipe(map(response => {
-      console.log(response);
+      return response;
+      // console.log(response);
     }));
   }
 }

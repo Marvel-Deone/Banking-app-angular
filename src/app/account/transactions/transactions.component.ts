@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { TransactionService } from 'src/app/services/transaction.service';
 
 @Component({
@@ -23,8 +25,10 @@ export class TransactionsComponent implements OnInit {
     sender_id: ''
   }
   errorMessage: any;
+  loading = false;
+  recipientResponse?: any;
 
-  constructor(private transactionService: TransactionService) { }
+  constructor(private transactionService: TransactionService, private _snackbar: MatSnackBar, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -38,19 +42,27 @@ export class TransactionsComponent implements OnInit {
   }
 
   checkAccountNo() {
-    let recipient_acc_no = this.transactions.recipient_acc_no.toString();
-    console.log(typeof (recipient_acc_no));
+    this.loading = true;
+    let recipient_acc_no = { recipient_acc_no: this.transactions.recipient_acc_no.toString() };
 
-
-    this.transactionService.VerifyReceiptAccNo(this.transactions.recipient_acc_no).subscribe(
+    this.transactionService.VerifyReceiptAccNo(recipient_acc_no).subscribe(
       item => {
-        const response = item;
-        console.log(response);
+        this.recipientResponse = item;
+        console.log('item', item);
+
+        // this._snackbar.open('Recipient Found', "okay");
+        this.loading = false;
+        this.transactions.recipient_name = this.recipientResponse.recipient_name;
 
       },
       errorResponse => {
+        this.loading = false;
         this.errorMessage = errorResponse;
-        console.log(this.errorMessage);
+        console.log(this.errorMessage.error.message);
+        this._snackbar.open(this.errorMessage.error.message, "okay");
+        if (this.errorMessage.error.message == 'jwt expired') {
+          this.router.navigate(['sign-in']);
+        }
       })
   }
 

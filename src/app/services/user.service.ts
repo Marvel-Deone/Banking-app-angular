@@ -41,13 +41,20 @@ export class UserService {
     return this.token = localStorage.getItem('auth_tkn');
   }
 
+  // Register(inputdata: any) {
+  //   const URI = this.uriseg + '/user/register';
+  //   return this.http.post(URI, inputdata).pipe(map(response => {
+  //     console.log("Register", response);
+  //   }));
+
+  // }
+
   Register(inputdata: any) {
     const URI = this.uriseg + '/user/register';
+
     return this.http.post(URI, inputdata).pipe(map(response => {
-      console.log("Register", response);
+      console.log(response);
     }));
-
-
   }
 
   GetProfile() {
@@ -70,7 +77,7 @@ export class UserService {
   UpdateProfile(inputdata: any) {
     const URI = this.uriseg + '/user/updateProfile'
     return this.http.get(URI, inputdata).pipe(map(response => {
-      console.log("Update Profile", response);
+      return response;
 
     }));
   }
