@@ -32,22 +32,48 @@ export class TransactionsComponent implements OnInit {
   userProfile: any;
 
   userProfileDetails = {
+    id: '',
+    username: '',
+    email: '',
     account_no: '',
     balance: '',
+    address: '',
+    country: '',
+    dob: '',
+    first_name: '',
+    last_name: '',
+    phone_number: '',
+    gender: '',
+    profileImage: '',
+    state: ''
   };
   account_no: any;
+  transaction_history: any;
 
   constructor(private transactionService: TransactionService, private _snackbar: MatSnackBar, private router: Router, private auth: UserService) { }
 
   ngOnInit(): void {
+
     this.auth.GetProfile().subscribe(
       item => {
         this.userProfile = item.profile;
         console.log(this.userProfile.username);
         this.account_no = this.userProfile.account_no;
         this.userProfileDetails = {
+          id: this.userProfile._id,
+          username: this.userProfile.username,
+          email: this.userProfile.email,
           account_no: this.userProfile.account_no,
+          address: this.userProfile.address,
           balance: this.userProfile.balance,
+          country: this.userProfile.country,
+          dob: this.userProfile.dob,
+          first_name: this.userProfile.first_name,
+          last_name: this.userProfile.last_name,
+          phone_number: this.userProfile.phone_number,
+          gender: this.userProfile.gender,
+          profileImage: this.userProfile.profileImage,
+          state: this.userProfile.state
         };
         console.log("Hello", this.userProfileDetails);
       },
@@ -62,6 +88,21 @@ export class TransactionsComponent implements OnInit {
         }
       }
     );
+
+    this.transactionService.FetchTransaction(this.userProfileDetails.id).subscribe(
+      response => {
+        this.transaction_history = response;
+        console.log('response', this.transaction_history);
+
+      },
+      errorResponse => {
+        this.errorMessage = errorResponse;
+        console.log(this.errorMessage.error.message);
+        if (this.errorMessage.error.message == 'jwt expired') {
+          this.router.navigate(['sign-in']);
+        }
+      });
+
   }
 
   drawal(value: any) {

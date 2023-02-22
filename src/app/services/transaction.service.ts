@@ -33,4 +33,14 @@ export class TransactionService {
       return response;
     }));
   }
+
+  FetchTransaction(inputdata: any) {
+    const URI = this.uriseg + '/user/fetch_transaction';
+    this.user_token = localStorage.getItem('auth_tkn');
+    const token = this.user_token.replace(/['"]+/g, '');
+    this.header = { headers: { Authorization: `${token}` } };
+    return this.http.post(URI, inputdata, this.header).pipe(map(response => {
+      return response;
+    }));
+  }
 }
