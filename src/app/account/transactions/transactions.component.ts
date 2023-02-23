@@ -15,7 +15,7 @@ export class TransactionsComponent implements OnInit {
   drawalStat?: boolean;
   currency: any = 'NGN';
 
-  public transactions = {
+  public transactionsPayload = {
     sender_acc_no: '',
     recipient_acc_no: '',
     recipient_name: '',
@@ -48,7 +48,8 @@ export class TransactionsComponent implements OnInit {
     state: ''
   };
   account_no: any;
-  transaction_history: any;
+  public transactionResponse?: any;
+  public transactions: any = [];
 
   constructor(private transactionService: TransactionService, private _snackbar: MatSnackBar, private router: Router, private auth: UserService) { }
 
@@ -89,11 +90,12 @@ export class TransactionsComponent implements OnInit {
       }
     );
 
-    this.transactionService.FetchTransaction(this.userProfileDetails.id).subscribe(
+    this.transactionService.FetchTransactions(this.userProfileDetails.id).subscribe(
       response => {
-        this.transaction_history = response;
-        console.log('response', this.transaction_history);
-
+        this.transactionResponse = response;
+        this.transactions = this.transactionResponse.transactions;
+        // this.transactions 
+        console.log('transactions', this.transactions);
       },
       errorResponse => {
         this.errorMessage = errorResponse;
@@ -142,7 +144,7 @@ export class TransactionsComponent implements OnInit {
     this.transactions.sender_acc_no = this.userProfileDetails.account_no;
     console.log('transactions', this.transactions);
 
-    this.transactionService.transferMoney(this.transactions).subscribe(
+    this.transactionService.transferMoney(this.transactionsPayload).subscribe(
       response => {
         this.transferloading = false;
         this.response = response;

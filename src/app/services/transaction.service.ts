@@ -34,7 +34,7 @@ export class TransactionService {
     }));
   }
 
-  FetchTransaction(inputdata: any) {
+  FetchTransactions(inputdata: any) {
     const URI = this.uriseg + '/user/fetch_transaction';
     this.user_token = localStorage.getItem('auth_tkn');
     const token = this.user_token.replace(/['"]+/g, '');

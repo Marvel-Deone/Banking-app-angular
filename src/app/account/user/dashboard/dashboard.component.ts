@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TransactionService } from 'src/app/services/transaction.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -20,7 +21,7 @@ export class DashboardComponent implements OnInit {
   auth_tkn?: any;
   account_no?: any;
   balance?: any;
-  userProfileDetails?: {
+  userProfileDetails = {
     id: '',
     username: '',
     email: '',
@@ -36,20 +37,19 @@ export class DashboardComponent implements OnInit {
     profileImage: '',
     state: ''
   }
+  transactionResponse?: any;
+  transactions: any = [];
 
-  constructor(private auth: UserService, private router: Router) { }
+  constructor(private auth: UserService, private router: Router, private transactionService: TransactionService) { }
 
   ngOnInit(): void {
 
 
     if (localStorage.getItem('token')) {
       this.tokenMessage = localStorage.getItem('token');
-      console.log(this.tokenMessage);
-      console.log("message", this.tokenMessage, this.tokenMessage.split(',')[1]);
       this.tokenObj = this.tokenMessage.split(',')[1];
       this.token = this.tokenObj.slice(9);
       this.id = this.token.slice(0, -1);
-      console.log('id', this.id, this.token);
       localStorage.setItem('auth_tkn', JSON.stringify(this.id));
     }
 
@@ -58,7 +58,6 @@ export class DashboardComponent implements OnInit {
     this.auth.GetProfile().subscribe(
       item => {
         this.userProfile = item.profile;
-        console.log(this.userProfile.username);
         this.account_no = this.userProfile.account_no;
         this.userProfileDetails = {
           id: this.userProfile._id,
@@ -76,7 +75,6 @@ export class DashboardComponent implements OnInit {
           profileImage: this.userProfile.profileImage,
           state: this.userProfile.state
         };
-        console.log("Hello", this.userProfileDetails);
       },
       errorResponse => {
         this.errorMessage = errorResponse;
@@ -89,6 +87,19 @@ export class DashboardComponent implements OnInit {
         }
       }
     );
+
+    this.transactionService.FetchTransactions(this.userProfileDetails.id).subscribe(
+      response => {
+        this.transactionResponse = response;
+        this.transactions = this.transactionResponse.transactions;
+      },
+      errorResponse => {
+        this.errorMessage = errorResponse;
+        console.log(this.errorMessage.error.message);
+        if (this.errorMessage.error.message == 'jwt expired') {
+          this.router.navigate(['sign-in']);
+        }
+      });
 
   }
 

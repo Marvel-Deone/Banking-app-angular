@@ -64,7 +64,7 @@
                             Transferred
                         </p>
                         <p class="text-lg font-semibold text-gray-700">
-                            $ 46,760.89
+                            N0
                         </p>
                     </div>
                 </div>
@@ -81,7 +81,7 @@
                             Received
                         </p>
                         <p class="text-lg font-semibold text-gray-700">
-                            $ 30,000.00
+                            N0
                         </p>
                     </div>
                 </div>
@@ -344,7 +344,7 @@
                                 <th class="px-4 py-3">Date</th>
                             </tr>
                         </thead>
-                        <tbody class="bg-white divide-y">
+                        <tbody class="bg-white divide-y" *ngFor="let transaction of transactions">
                             <tr class="text-gray-700">
                                 <td class="px-4 py-3">
                                     <div class="flex items-center text-sm">
@@ -361,162 +361,26 @@
                                     </div>
                                 </td>
                                 <td class="px-4 py-3 text-sm">
-                                    Paid for a service
+                                    {{transaction.note}}
                                 </td>
                                 <td class="px-4 py-3 text-sm">
-                                    6262634209
+                                    {{transaction.recipient_acc_no}}
                                 </td>
                                 <td class="px-4 py-3 text-sm">
-                                    $ 863.45
+                                    {{transaction.amount}}
                                 </td>
                                 <td class="px-4 py-3 text-xs">
-                                    <span
-                                        class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full ">
-                                        Received
-                                    </span>
-                                </td>
-                                <td class="px-4 py-3 text-sm">
-                                    6/10/2020
-                                </td>
-                            </tr>
-
-                            <tr class="text-gray-700">
-                                <td class="px-4 py-3">
-                                    <div class="flex items-center text-sm">
-                                        <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
-                                            <img class="object-cover w-full h-full rounded-full"
-                                                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&facepad=3&fit=facearea&s=707b9c33066bf8808c934c8ab394dff6"
-                                                alt="" loading="lazy" />
-                                            <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true">
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <p class="font-semibold">Jolina Angelie</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="px-4 py-3 text-sm">
-                                    Transfer to a friend
-                                </td>
-                                <td class="px-4 py-3 text-sm">
-                                    6262632976
-                                </td>
-                                <td class="px-4 py-3 text-sm">
-                                    $ 369.95
-                                </td>
-                                <td class="px-4 py-3 text-xs">
-                                    <span
-                                        class="px-2 py-1 font-semibold leading-tight text-orange-700 bg-orange-100 rounded-full">
+                                    <!-- <span
+                                        class="px-2 py-1 font-semibold leading-tight text-orange-700 bg-orange-100 rounded-full ">
                                         Transferred
-                                    </span>
-                                </td>
-                                <td class="px-4 py-3 text-sm">
-                                    6/10/2020
-                                </td>
-                            </tr>
-
-                            <tr class="text-gray-700">
-                                <td class="px-4 py-3">
-                                    <div class="flex items-center text-sm">
-                                        <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
-                                            <img class="object-cover w-full h-full rounded-full"
-                                                src="https://images.unsplash.com/photo-1551069613-1904dbdcda11?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
-                                                alt="" loading="lazy" />
-                                            <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true">
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <p class="font-semibold">Sarah Curry</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="px-4 py-3 text-sm">
-                                    Pay a bill
-                                </td>
-                                <td class="px-4 py-3 text-sm">
-                                    6262617897
-                                </td>
-                                <td class="px-4 py-3 text-sm">
-                                    $ 86.00
-                                </td>
-                                <td class="px-4 py-3 text-xs">
-                                    <span
-                                        class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full ">
-                                        Cancelled
-                                    </span>
-                                </td>
-                                <td class="px-4 py-3 text-sm">
-                                    6/10/2020
-                                </td>
-                            </tr>
-
-                            <tr class="text-gray-700">
-                                <td class="px-4 py-3">
-                                    <div class="flex items-center text-sm">
-                                        <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
-                                            <img class="object-cover w-full h-full rounded-full"
-                                                src="https://images.unsplash.com/photo-1551006917-3b4c078c47c9?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
-                                                alt="" loading="lazy" />
-                                            <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true">
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <p class="font-semibold">Rulia Joberts</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="px-4 py-3 text-sm">
-                                    Transfer to a friend
-                                </td>
-                                <td class="px-4 py-3 text-sm">
-                                    6262687098
-                                </td>
-                                <td class="px-4 py-3 text-sm">
-                                    $ 1276.45
-                                </td>
-                                <td class="px-4 py-3 text-xs">
+                                    </span> -->
                                     <span
                                         class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full">
-                                        Received
+                                        Success
                                     </span>
                                 </td>
                                 <td class="px-4 py-3 text-sm">
-                                    6/10/2020
-                                </td>
-                            </tr>
-
-                            <tr class="text-gray-700">
-                                <td class="px-4 py-3">
-                                    <div class="flex items-center text-sm">
-                                        <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
-                                            <img class="object-cover w-full h-full rounded-full"
-                                                src="https://images.unsplash.com/photo-1546456073-6712f79251bb?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
-                                                alt="" loading="lazy" />
-                                            <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true">
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <p class="font-semibold">Wenzel Dashington</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="px-4 py-3 text-sm">
-                                    For fun
-                                </td>
-                                <td class="px-4 py-3 text-sm">
-                                    6262628975
-                                </td>
-                                <td class="px-4 py-3 text-sm">
-                                    $ 863.45
-                                </td>
-                                <td class="px-4 py-3 text-xs">
-                                    <span
-                                        class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full">
-                                        Received
-                                    </span>
-                                </td>
-                                <td class="px-4 py-3 text-sm">
-                                    6/10/2020
+                                    {{transaction.createdAt | date: 'short'}}
                                 </td>
                             </tr>
                         </tbody>

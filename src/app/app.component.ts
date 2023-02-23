@@ -17,7 +17,6 @@ export class AppComponent implements DoCheck {
   ngDoCheck(): void {
     // throw new Error('Method not implemented');
     const currentroute = this.router.url;
-    console.log(currentroute);
 
 
     if (currentroute == '/sign-in') {
