@@ -1,0 +1,51 @@
+<div class="flex flex-col gap-6">
+    <app-header-menu></app-header-menu>
+    <div class="h-full overflow-y-auto md:px-6 py-16 md:px-5 md:py-20">
+        <div class="container px-6 md:mx-auto grid">
+            <h2 class="my-6 text-2xl font-semibold text-gray-700 mb-4">
+                Verify Account
+            </h2>
+            <div *ngIf="!verification_code" class="flex flex-col gap-10 mt-6">
+                <img src="assets/verify.svg" alt="" class="w-6/12">
+                <div class="flex flex-col text-gray-700">
+                    <p>We are happy you signed up for Banka!</p>
+                    <p>To validate your account and gain access to all of our services, click the button below.</p>
+                    <button (click)="sendOtp()" *ngIf="!loading" routerLink="/user/verify-account"
+                        class="w-full md:w-36 bg-red-400 rounded-md px-3 py-2 text-white mt-1">Verify
+                        Account</button>
+                    <button *ngIf="loading" routerLink="/user/verify-account"
+                        class="w-full md:w-36 bg-red-400 flex items-center rounded-md px-3 py-2 text-white mt-1">
+                        <div class="flex mx-auto gap-2 items-center">
+                            <img src="assets/spinner.gif" alt="" class="w-6 h-6">
+                        </div>
+                    </button>
+                </div>
+            </div>
+            <div *ngIf="verification_code"
+                class="absolute fixed top-0 right-0 bg-black/60 w-full h-screen flex z-40 overflow-hidden">
+                <div class="bg-white w-4/12 rounded-md px-4 py-5 flex flex-col mx-auto h-52 my-auto">
+                    <form (ngSubmit)="onSubmit()" [formGroup]="form">
+                        <p> You have received a six-digit code in your email ({{userProfileDetails.email}}). enter the
+                            following
+                            code</p>
+                        <div class="flex gap-4 mt-2">
+                            <input *ngFor="let input of formInput;  index as i" #formRow type="text"
+                                formControlName="{{input}}"
+                                class="border border-gray-400  transition-all ease-in-out duration-500 hover:border-blue-600 active:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-300 w-12 h-12 rounded-md px-2 text-center text-sm"
+                                maxlength="1" (keyup)="keyUpEvent($event, i)">
+                        </div>
+                        <button type="submit" *ngIf="!loading" routerLink="/user/verify-account"
+                            class="w-full md:w-28 bg-red-400 rounded-md px-3 py-2 text-white mt-4">Verify</button>
+                        <button *ngIf="loading" routerLink="/user/verify-account"
+                            class="w-full md:w-28 bg-red-400 flex items-center rounded-md px-3 py-2 text-white mt-4">
+                            <div class="flex mx-auto gap-2 items-center">
+                                <img src="assets/spinner.gif" alt="" class="w-6 h-6">
+                            </div>
+                        </button>
+                    </form>
+                    <a href="" class="text-gray-700 mt-2 text-[13px]">Resend Code</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

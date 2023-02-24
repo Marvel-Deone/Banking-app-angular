@@ -14,6 +14,7 @@ export class HeaderMenuComponent implements OnInit {
   userProfile?: any;
   errorMessage?: any;
   username?: any;
+  verifiedStatus: any;
 
   constructor(private router: Router, private _snackbar: MatSnackBar, private service: UserService) { }
 
@@ -22,8 +23,9 @@ export class HeaderMenuComponent implements OnInit {
     this.service.GetProfile().subscribe(
       item => {
         this.userProfile = item.profile;
-        console.log(this.userProfile);
+        console.log('verifyStatus', this.userProfile.verified);
         this.username = this.userProfile.username;
+        this.verifiedStatus = this.userProfile.verified;
       },
       errorResponse => {
         this.errorMessage = errorResponse;

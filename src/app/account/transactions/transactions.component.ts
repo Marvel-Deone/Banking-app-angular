@@ -117,15 +117,14 @@ export class TransactionsComponent implements OnInit {
 
   checkAccountNo() {
     this.loading = true;
-    let recipient_acc_no = { recipient_acc_no: this.transactions.recipient_acc_no.toString() };
+    let recipient_acc_no = { recipient_acc_no: this.transactionsPayload.recipient_acc_no.toString() };
 
     this.transactionService.VerifyReceiptAccNo(recipient_acc_no).subscribe(
       item => {
         this.recipientResponse = item;
         console.log('item', item);
         this.loading = false;
-        this.transactions.recipient_name = this.recipientResponse.recipient_name;
-
+        this.transactionsPayload.recipient_name = this.recipientResponse.recipient_name;
       },
       errorResponse => {
         this.loading = false;
@@ -140,9 +139,9 @@ export class TransactionsComponent implements OnInit {
 
   transferMoney() {
     this.transferloading = true;
-    this.transactions.recipient_id = this.recipientResponse.recipient_id;
-    this.transactions.sender_acc_no = this.userProfileDetails.account_no;
-    console.log('transactions', this.transactions);
+    this.transactionsPayload.recipient_id = this.recipientResponse.recipient_id;
+    this.transactionsPayload.sender_acc_no = this.userProfileDetails.account_no;
+    console.log('transactions', this.transactionsPayload);
 
     this.transactionService.transferMoney(this.transactionsPayload).subscribe(
       response => {
@@ -151,6 +150,7 @@ export class TransactionsComponent implements OnInit {
         console.log('response', this.response);
         this._snackbar.open('Transaction Succssful', "okay");
         this.drawalStat = false;
+        window.location.reload();
         // this.transactions.recipient_name = this.recipientResponse.recipient_name;
 
       },

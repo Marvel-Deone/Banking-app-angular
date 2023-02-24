@@ -1,6 +1,6 @@
 <!-- Desktop View -->
 <div
-    class="hidden lg:flex px-4 md:px-10 flex items-start gap-14 md:gap-[50rem] py-3 border-b border-gray-200 shadow-lg w-full fixed bg-white py-2 md:py-5 z-40">
+    class="hidden lg:flex px-4 md:px-10 flex items-start gap-14 md:gap-[46rem] py-3 border-b border-gray-200 shadow-lg w-full fixed bg-white py-2 md:py-5 z-40">
     <div class="flex gap-5">
         <button type="button" class="hidden md:inline-flex">
             <mat-icon aria-hidden="false" aria-label="menu icon" fontIcon="menu"></mat-icon>
@@ -8,7 +8,7 @@
         <h3 class="font-semibold" style="margin: 0 !important;">{{username}}</h3>
     </div>
 
-    <div class="flex gap-3 md:gap-4">
+    <div class="flex gap-3 md:gap-2">
         <button mat-icon-button [matMenuTriggerFor]="notification" aria-label="Profile with a menu" class="mt-1">
             <mat-icon class="cursor-pointer text-[28px]">notifications_none</mat-icon>
         </button>
@@ -59,7 +59,7 @@
                 </div>
             </button>
         </mat-menu>
-        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Profile with a menu">
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Profile with a menu" class="ml-3">
             <div class="relative hidden w-9 h-9 mr-3 rounded-full md:block">
                 <img class="object-cover w-full h-full rounded-full"
                     src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&facepad=3&fit=facearea&s=707b9c33066bf8808c934c8ab394dff6"
@@ -82,6 +82,9 @@
                 <span>Log Out</span>
             </button>
         </mat-menu>
+        <button *ngIf="!verifiedStatus" routerLink="/user/verify-account"
+            class="bg-red-400 rounded-md px-3 py-2 text-white mt-1">Verify
+            Account</button>
     </div>
 </div>
 

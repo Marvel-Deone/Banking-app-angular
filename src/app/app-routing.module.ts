@@ -6,6 +6,7 @@ import { AccountSettingsComponent } from './account/account-settings/account-set
 import { ProfileComponent } from './account/profile/profile.component';
 import { TransactionsComponent } from './account/transactions/transactions.component';
 import { DashboardComponent } from './account/user/dashboard/dashboard.component';
+import { VerifyAccountComponent } from './account/verify-account/verify-account.component';
 import { AddAdminComponent } from './add-admin/add-admin.component';
 import { AdminComponent } from './admin/admin.component';
 import { AuthGuard } from './auth/auth.guard';
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path: 'user/profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'user/account-setting', component: AccountSettingsComponent, canActivate: [AuthGuard] },
   { path: 'user/my-transactions', component: TransactionsComponent, canActivate: [AuthGuard] },
+  { path: 'user/verify-account', component: VerifyAccountComponent, canActivate: [AuthGuard] },
   { path: "**", component: PageNotFoundComponent }
 ];
 

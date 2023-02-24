@@ -57,6 +57,21 @@ export class UserService {
     }));
   }
 
+  SendOtp(inputdata: any) {
+    const URI = this.uriseg + '/user/send_otp';
+
+    this.user_token = localStorage.getItem('auth_tkn');
+    const token = this.user_token.replace(/['"]+/g, '');
+
+    this.header = { headers: { Authorization: `${token}` } };
+
+    return this.http.post(URI, inputdata, this.header).pipe(map(response => {
+      return response;
+    }));
+  }
+
+
+
   GetProfile() {
     const URI = this.uriseg + '/user/profile';
     this.user_token = localStorage.getItem('auth_tkn');

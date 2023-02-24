@@ -30,6 +30,7 @@ import { SignupComponent } from './signup/signup.component';
 import { ProfileComponent } from './account/profile/profile.component';
 import { AccountSettingsComponent } from './account/account-settings/account-settings.component';
 import { TransactionsComponent } from './account/transactions/transactions.component';
+import { VerifyAccountComponent } from './account/verify-account/verify-account.component';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import { TransactionsComponent } from './account/transactions/transactions.compo
     ProfileComponent,
     AccountSettingsComponent,
     TransactionsComponent,
+    VerifyAccountComponent,
   ],
   imports: [
     BrowserModule,
