@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChildren } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 
@@ -37,7 +38,7 @@ export class VerifyAccountComponent implements OnInit {
   myarr: [] = [];
   sentOtpResp: any;
 
-  constructor(private auth: UserService, private router: Router) {
+  constructor(private auth: UserService, private router: Router, private _snackbar: MatSnackBar) {
     this.form = this.toFormGroup(this.formInput);
   }
 
@@ -98,9 +99,11 @@ export class VerifyAccountComponent implements OnInit {
         if (this.sentOtpResp.message == "OTP sent to your mail") {
           this.loading = false;
           this.verification_code = true;
+          this._snackbar.open(this.sentOtpResp.message, "X");
           console.log('resp', resp);
         } else {
           this.loading = false;
+          this._snackbar.open(this.sentOtpResp.message + ', pls, try again', "X");
           this.verification_code = false;
           console.log('resp', resp);
         }

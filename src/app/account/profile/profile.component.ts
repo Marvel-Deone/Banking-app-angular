@@ -34,12 +34,12 @@ export class ProfileComponent implements OnInit {
     country: '',
     dob: '',
     email: '',
-    first_name: 'Folajimi',
+    first_name: '',
     gender: '',
     geo_political_zone: '',
     home_address: '',
     image: '',
-    last_name: 'Adedolapo',
+    last_name: '',
     lga: '',
     middle_name: '',
     phone_number: '',
@@ -79,8 +79,8 @@ export class ProfileComponent implements OnInit {
         this.profile.state = this.userProfile.state;
         this.profile.address = this.userProfile.address;
         this.profile.gender = this.userProfile.gender;
-        // this.profile.first_name = this.userProfile.first_name;
-        // this.profile.last_name = this.userProfile.last_name;
+        this.profile.first_name = this.userProfile.first_name;
+        this.profile.last_name = this.userProfile.last_name;
       },
       errorResponse => {
         this.errorMessage = errorResponse;
