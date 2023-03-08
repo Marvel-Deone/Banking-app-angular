@@ -66,14 +66,14 @@ export class SignupComponent implements OnInit {
     console.log(form.value);
     this.service.Register(form.value).subscribe(item => {
       this.respdata = item;
-      this._snackbar.open("Registration Successful", "okay");
+      this._snackbar.open("Registration Successful", "X");
       this.router.navigate(['sign-in']);
       this.loading = false;
     },
       errorResponse => {
         this.loading = false;
         console.log('Registration Failed', this.respdata);
-        this._snackbar.open("Registration Failed", "okay");
+        this._snackbar.open("Registration Failed", "X");
       })
   }
 }

@@ -46,13 +46,13 @@ export class SigninComponent implements OnInit {
       item => {
         this.loading = false;
         this.respData = item;
-        this._snackBar.open("Login successful", "okay");
+        this._snackBar.open("Login successful", "X");
         this.router.navigate(['user/dashboard']);
       },
       errorResponse => {
         this.loading = false;
         this.errorMessage = errorResponse.error.message;
-        this.errorMessage ? this._snackBar.open(this.errorMessage, "okay") : this._snackBar.open("Pls check your internet connection", "okay");
+        this.errorMessage ? this._snackBar.open(this.errorMessage, "okay") : this._snackBar.open("Pls check your internet connection", "X");
         console.log(errorResponse);
         form.reset();
       });
