@@ -65,10 +65,10 @@ export class SignupComponent implements OnInit {
     // console.log('Valid?', form.valid); // true or false
     console.log(form.value);
     this.service.Register(form.value).subscribe(item => {
+    this.loading = false;
       this.respdata = item;
       this._snackbar.open("Registration Successful", "X");
       this.router.navigate(['sign-in']);
-      this.loading = false;
     },
       errorResponse => {
         this.loading = false;
